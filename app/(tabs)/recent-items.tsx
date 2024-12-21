@@ -1,4 +1,3 @@
-// RecentPayment.tsx
 import React from 'react';
 import {
   View,
@@ -73,7 +72,7 @@ const RecentPayment = () => {
     return (
       <TouchableOpacity
         style={styles.card}
-        //  onPress={() => router.push(`/order-details?id=${id}`)}
+        onPress={() => router.push(`/order-details`)}
       >
         <View style={styles.cardHeader}>
           <View style={styles.cardLeft}>
@@ -83,9 +82,8 @@ const RecentPayment = () => {
             </Text>
           </View>
           <Chip
-            // mode='flat'
+            mode='flat'
             style={[
-              //   styles.chip,
               status.toLowerCase() === 'pending'
                 ? styles.chipPending
                 : styles.chipSuccess,
@@ -666,8 +664,8 @@ const RecentPayment = () => {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
+      <Text style={styles.header}>Recent Payment</Text>
       <View style={styles.container}>
-        <Text style={styles.header}>Recent Payment</Text>
         <FlatList
           data={ordrs}
           keyExtractor={(item) => item.id.toString()}
@@ -696,6 +694,8 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     fontSize: 23,
     marginBottom: 16,
+    marginHorizontal: 20,
+    paddingVertical: 10,
   },
   skeletonHeader: {
     width: 150,
@@ -797,10 +797,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   chipPending: {
-    backgroundColor: '#FFA500', // Warning color
+    backgroundColor: '#FFA500',
   },
   chipSuccess: {
-    backgroundColor: '#28A745', // Success color
+    backgroundColor: '#28A745',
   },
   chipText: {
     color: '#fff',
